@@ -1,0 +1,3 @@
+setInterval(function(){ 
+	console.log("print this once every 3 second");
+}, 3000);//run this thang every 3 seconds
