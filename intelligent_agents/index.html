@@ -1,0 +1,35 @@
+<html>
+<body>
+
+<h2>JavaScript Class Method</h2>
+
+<p>Pasa un parametro dentro del metodo age().</p>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+let date = new Date();
+let year = date.getFullYear();
+
+let myCar = new Car("Ford", 2015);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";
+	
+	setInterval(function(){ 
+	console.log("print this once every 3 second");
+}, 3000);//run this thang every 3 seconds
+
+</script>
+
+</body>
+</html>
