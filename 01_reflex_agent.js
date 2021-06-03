@@ -1,3 +1,6 @@
+// MIT License
+// Copyright (c) 2020 Luis Espino
+
 function reflex_agent(location, state){
    	if (state=="DIRTY") return "CLEAN";
    	else if (location=="A") return "RIGHT";
