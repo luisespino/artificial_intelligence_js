@@ -31,7 +31,12 @@
             nodes: nodes,
             edges: edges,
       };
-      var options = {};
+      var options = {
+            layout: {
+                  hierarchical: {
+                  },
+            },                        
+      };
       var network = new vis.Network(container, data, options);
     </script>  
 </body>
