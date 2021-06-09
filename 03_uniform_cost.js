@@ -13,7 +13,7 @@ function successors(n){
 	if (n[0] == 9) return [[5,n[1]+1,inc()], [6,n[1]+1,inc()], [8,n[1]+1,inc()]];
 }
 
-function sucesores(n):
+function sucesores(n){
     if (n[0]=='A')
         return [['B', n[1]+5,inc()], ['C', n[1]+6,inc()]]
     if (n[0]=='B')
@@ -26,37 +26,26 @@ function sucesores(n):
         return [['B', n[1]+5,inc()], ['C', n[1]+2,inc()], ['D', n[1]+3,inc()], ['F', n[1]+1,inc()]]
     if (n[0]=='F')
         return [['D', n[1]+4,inc()], ['E', n[1]+1,inc()]]
-
+}
 
 function costo(start, end){
-
-
-	//document.getElementById("log").innerHTML+="<br><br>".concat("<h3>Depth First Search (reverse)</h3>");
 	var dot = '{'
-alert(dot)
-/*
 	var list = [[start,0,inc()]];
 	dot+=list[0][2]+' [label="'+list[0][0]+'"];'
-
 	while (list.length > 0){
 		var current = list.shift();
 		if (current[0] == end) {			
 			dot += '}'
-alert(dot)
 			return dot
 		}
 		var temp = sucesores(current);
-		temp.reverse();
-		temp.forEach(val => dot+=val[2]+' [label="'+val[0]+'"];'+current[2]+'->'+val[2]+';')
+		//temp.reverse();
+		temp.forEach(val => dot+=val[2]+' [label="'+val[0]+'"];'+current[2]+'--'+val[2]+' [label="'+val[1]+'"] ;')
 		list = temp.concat(list);
-		//lista = lista.sort( (a,b) => a[1] > b[1] );
-	
+		list = list.sort( function(a,b) { return a[1] - b[1] });
+	}
 	dot += '}'
-
-alert(dot)
 	return dot
-*/
-
 }
 
 

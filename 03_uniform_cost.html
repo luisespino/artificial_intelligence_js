@@ -8,30 +8,24 @@
 <body>
 <div id="mynetwork"></div>
 <script type="text/javascript">
-      // create an array with nodes
-	
-
       // create a network
       var container = document.getElementById("mynetwork");
-	var DOTstring = costo('A','F') //'{1 -> 2 ; 1 -> 3; 1 -> 4}';
+	var DOTstring = costo('A','F') 
 	var parsedData = vis.parseDOTNetwork(DOTstring);
 	var data = {
 	  nodes: parsedData.nodes,
 	  edges: parsedData.edges
 	}
-
       var options = {
             layout: {
                   hierarchical: {
-    enabled:true,
-      levelSeparation: 100,
-      nodeSpacing: 150,
-      blockShifting: true,
-      edgeMinimization: true,
-      parentCentralization: true,
-      direction: 'UD',        // UD, DU, LR, RL
-      sortMethod: 'directed'  // hubsize, directed
-		},
+                        levelSeparation: 100,
+                        nodeSpacing: 100,
+                        parentCentralization: true,
+                        direction: 'UD',        // UD, DU, LR, RL
+                        sortMethod: 'directed',  // hubsize, directed
+                        shakeTowards: 'roots'  // roots, leaves                        
+		      },
             },                        
       };
       var network = new vis.Network(container, data, options);
