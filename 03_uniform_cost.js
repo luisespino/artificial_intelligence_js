@@ -1,17 +1,5 @@
 // MIT License
-// Copyright (c) 2020 Luis Espino
-
-function successors(n){
-	if (n[0] == 1) return [[2,n[1]+1,inc()], [4,n[1]+1,inc()], [5,n[1]+1,inc()]];
-	if (n[0] == 2) return [[1,n[1]+1,inc()], [3,n[1]+1,inc()], [4,n[1]+1,inc()], [5,n[1]+1,inc()], [6,n[1]+1,inc()]];
-	if (n[0] == 3) return [[2,n[1]+1,inc()], [5,n[1]+1,inc()], [6,n[1]+1,inc()]];
-	if (n[0] == 4) return [[1,n[1]+1,inc()], [2,n[1]+1,inc()], [5,n[1]+1,inc()], [7,n[1]+1,inc()], [8,n[1]+1,inc()]];
-	if (n[0] == 5) return [[1,n[1]+1,inc()], [2,n[1]+1,inc()], [3,n[1]+1,inc()], [4,n[1]+1,inc()], [6,n[1]+1,inc()], [7,n[1]+1,inc()] ,[8,n[1]+1,inc()], [9,n[1]+1,inc()]];
-	if (n[0] == 6) return [[2,n[1]+1,inc()], [3,n[1]+1,inc()], [5,n[1]+1,inc()], [8,n[1]+1,inc()] ,[9,n[1]+1,inc()]];
-	if (n[0] == 7) return [[4,n[1]+1,inc()], [5,n[1]+1,inc()], [8,n[1]+1,inc()]];
-	if (n[0] == 8) return [[4,n[1]+1,inc()], [5,n[1]+1,inc()], [6,n[1]+1,inc()] ,[7,n[1]+1,inc()], [9,n[1]+1,inc()]];
-	if (n[0] == 9) return [[5,n[1]+1,inc()], [6,n[1]+1,inc()], [8,n[1]+1,inc()]];
-}
+// Copyright (c) 2021 Luis Espino
 
 function sucesores(n){
     if (n[0]=='A')
@@ -48,9 +36,7 @@ function costo(start, end){
 	return dot
 }
 
-
 var id = 1
-
 function inc() {
 	return id++
 }
