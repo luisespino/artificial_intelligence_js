@@ -13,10 +13,8 @@
 
       // create a network
       var container = document.getElementById("mynetwork");
-
-	var DOTstring = costo(1,9) //'{1 -> 2 ; 1 -> 3; 1 -> 4}';
+	var DOTstring = costo('A','F') //'{1 -> 2 ; 1 -> 3; 1 -> 4}';
 	var parsedData = vis.parseDOTNetwork(DOTstring);
-
 	var data = {
 	  nodes: parsedData.nodes,
 	  edges: parsedData.edges
@@ -26,9 +24,8 @@
             layout: {
                   hierarchical: {
     enabled:true,
-      levelSeparation: 10,
-      nodeSpacing: 100,
-      treeSpacing: 200,
+      levelSeparation: 100,
+      nodeSpacing: 150,
       blockShifting: true,
       edgeMinimization: true,
       parentCentralization: true,
