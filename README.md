@@ -6,3 +6,4 @@
 
 [Uniform Cost Search](https://luisespino.github.io/artificial_intelligence_js/03_uniform_cost.html)
 
+[Best First Search](https://luisespino.github.io/artificial_intelligence_js/04_bestfirst.html)
