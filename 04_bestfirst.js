@@ -1,54 +1,55 @@
 // MIT License
 // Copyright (c) 2021 Luis Espino
 
-function succesorrs(n, e){
+function heuristic(start, end, h) {
+	if (h == 1)	{ // tiles out is sometimes encycled
+		var tiles_out = 0
+		for (var i = 0; i < start.length; i++){
+			if (start[i] != end[i]) tiles_out++
+		}
+		return tiles_out	
+	} else if (h == 2) { // Manhattan
+		var man = 0
+		for (var i = 0; i < start.length; i++){
+			man += Math.abs(i - end.indexOf(start.substring(i,i+1)))
+		}
+		return man
+	}
+}
+
+
+function successors(n, e, h){
 	var suc = []
-	for (var i = 0; i < n.length - 1; i++) {
-		let child = n.substring(0,i)+n.substring(i,i+1)+n.substring(i+1)
-		alert(child)
-		
+	for (var i = 0; i < n[0].length - 1; i++) {
+		let tmp = n[0].substring(i,i+1)
+		let child = n[0].substring(0,i)+n[0].substring(i+1,i+2)+tmp+n[0].substring(i+2)
+		suc.push([child,heuristic(child, e, h),inc()])
 	}
-
-
-
-	return [[n[1]+n[0]+n[2]+n[3],,inc()],[[n[0]+n[2]+n[1]+n[3],heuristic([n[0]+n[2]+n[1]+n[3],e),inc()],[[n[0]+n[1]+n[3]+n[2],,inc()]]
-    if (n[0]=='A')
-        return [['B', n[1]+5,inc()], ['C', n[1]+6,inc()]]
-    if (n[0]=='B')
-        return [['A', n[1]+5,inc()], ['C', n[1]+6,inc()], ['D', n[1]+3,inc()], ['E', n[1]+5,inc()]]
-    if (n[0]=='C')
-        return [['A', n[1]+6,inc()], ['B', n[1]+6,inc()], ['E', n[1]+2,inc()]]
-    if (n[0]=='D')
-        return [['B', n[1]+3,inc()], ['E', n[1]+3,inc()], ['F', n[1]+4,inc()]]
-    if (n[0]=='E')
-        return [['B', n[1]+5,inc()], ['C', n[1]+2,inc()], ['D', n[1]+3,inc()], ['F', n[1]+1,inc()]]
-    if (n[0]=='F')
-        return [['D', n[1]+4,inc()], ['E', n[1]+1,inc()]]
+	return suc
 }
 
-function heuristic(start, end) {
-	var tiles_out = 0
-	for (var i = 0; i < start.length; i++){
-		if (start[i] != end[i]) tiles_out++
-	}
-	return tiles_out
-}
-
-function bestfirst(start, end){
+function bestfirst(start, end, h){
+	var cont = 0
 	var dot = '{'
-	var list = [[start,heuristic(start, end),inc()]];
+	var list = [[start,heuristic(start, end, h),inc()]];
 	dot+=list[0][2]+' [label="'+list[0][0]+'"];'
-	while (list.length > 0){
+	while (list.length > 0){		
 		var current = list.shift();
 		if (current[0] == end) {			
 			dot += '}'
 			return dot
-		}
-		var temp = successors(current, end);
+		}		
+		var temp = successors(current, end, h);
 		//temp.reverse();
 		temp.forEach(val => dot+=val[2]+' [label="'+val[0]+'"];'+current[2]+'--'+val[2]+' [label="'+val[1]+'"] ;')
-		list = temp.concat(list);
+		list = list.concat(temp);
 		list = list.sort( function(a,b) { return a[1] - b[1] });
+		cont++
+		if (cont > 100) {
+			alert("The search is looped!")
+			dot += '}'
+			return dot
+		}
 	}
 	dot += '}'
 	return dot
@@ -60,9 +61,8 @@ function inc() {
 }
 
 function puzzle() {
-	alert('inicio')
-	var nodes = prompt("Ingrese texto inicial y final separado por un espacio, (texto mismo tamaño)", "halo hola")
-	if (nodes == null || nodes == '') nodes = 'halo hola'
+	var nodes = prompt("Ingrese texto inicial, texto final y heurstica (1 o 2) separados por un espacio")
+	if (nodes == null || nodes == '') nodes = 'halo hola 1'
 	nodes = nodes.split(' ')
-	//return bestfirst(nodes[0], nodes[1])
+	return bestfirst(nodes[0], nodes[1], nodes[2])
 }
