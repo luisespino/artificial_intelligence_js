@@ -1,7 +1,14 @@
 // MIT License
 // Copyright (c) 2021 Luis Espino
 
-function sucesores(n){
+function succesorrs(n, e){
+	for (var i = 0; i < n-length - 1; i++) {
+		
+	}
+
+
+
+	return [[n[1]+n[0]+n[2]+n[3],,inc()],[[n[0]+n[2]+n[1]+n[3],heuristic([n[0]+n[2]+n[1]+n[3],e),inc()],[[n[0]+n[1]+n[3]+n[2],,inc()]]
     if (n[0]=='A')
         return [['B', n[1]+5,inc()], ['C', n[1]+6,inc()]]
     if (n[0]=='B')
@@ -34,7 +41,7 @@ function bestfirst(start, end){
 			dot += '}'
 			return dot
 		}
-		var temp = sucesores(current);
+		var temp = successors(current, end);
 		//temp.reverse();
 		temp.forEach(val => dot+=val[2]+' [label="'+val[0]+'"];'+current[2]+'--'+val[2]+' [label="'+val[1]+'"] ;')
 		list = temp.concat(list);
