@@ -2,7 +2,10 @@
 // Copyright (c) 2021 Luis Espino
 
 function succesorrs(n, e){
-	for (var i = 0; i < n-length - 1; i++) {
+	var suc = []
+	for (var i = 0; i < n.length - 1; i++) {
+		let child = n.substring(0,i)+n.substring(i,i+1)+n.substring(i+1)
+		alert(child)
 		
 	}
 
@@ -57,8 +60,9 @@ function inc() {
 }
 
 function puzzle() {
+	alert('inicio')
 	var nodes = prompt("Ingrese texto inicial y final separado por un espacio, (texto mismo tamaño)", "halo hola")
 	if (nodes == null || nodes == '') nodes = 'halo hola'
 	nodes = nodes.split(' ')
-	return bestfirst(nodes[0], nodes[1])
+	//return bestfirst(nodes[0], nodes[1])
 }
