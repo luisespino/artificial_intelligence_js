@@ -9,3 +9,5 @@
 [Best First Search](https://luisespino.github.io/artificial_intelligence_js/04_bestfirst.html)
 
 [AStar Search](https://luisespino.github.io/artificial_intelligence_js/05_astar.html)
+
+[Genetic Algorithm](https://luisespino.github.io/artificial_intelligence_js/06_ag.html)
