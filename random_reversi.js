@@ -111,4 +111,4 @@ for (var i = 0; i < 8; i++)
         }
 
 //seleccion movimiento mediante random        
-document.write([Math.floor(Math.random() * mov.length)])
+document.write(mov[Math.floor(Math.random() * mov.length)])
