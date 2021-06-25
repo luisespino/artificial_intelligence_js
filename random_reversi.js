@@ -12,9 +12,6 @@ console.log(turno+' '+lineal)
 var matriz = []
 var mov = []
 var c = 0
-console.log('document.location', document.location.href);
-console.log('location.pathname',  window.location.pathname); // Returns path only
-console.log('location.href', window.location.href); // Returns full URL
 
 // transformación lineal a matriz
 for (let i = 0; i < 8; i++) {
