@@ -8,7 +8,7 @@ function op(turno) {
 var urlParams = new URLSearchParams(window.location.search);
 var turno = urlParams.get('turno')
 var lineal = urlParams.get('estado')
-console.log(turno+' '+estado)
+console.log(turno+' '+lineal)
 var matriz = []
 var mov = []
 var c = 0
